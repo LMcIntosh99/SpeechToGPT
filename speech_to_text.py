@@ -2,6 +2,8 @@ import speech_recognition as sr
 import pyttsx3
 import tkinter as tk
 from threading import Thread
+from gpt import ask_chatgpt
+
 
 class SpeechRecognitionGUI:
     def __init__(self, master):
@@ -34,14 +36,17 @@ class SpeechRecognitionGUI:
             try:
                 text = self.recognizer.recognize_google(audio)
                 self.status_label.config(text="Heard: " + text)
-                #response = ask_gpt(text)
-                print(text)
+                response = ask_chatgpt(text)
+                self.status_label.config(text="Response: " + response)
+                self.engine.say(response)
+                self.engine.runAndWait()
             except sr.UnknownValueError:
                 self.status_label.config(text="Unable to recognize speech")
             except sr.RequestError:
                 self.status_label.config(text="Error requesting results")
             finally:
                 self.listen_button.config(state="normal")
+
 
 root = tk.Tk()
 my_gui = SpeechRecognitionGUI(root)
