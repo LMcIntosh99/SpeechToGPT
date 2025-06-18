@@ -1,5 +1,5 @@
 # SpeechToGPT
-This repository contains a Python-based speech recognition assistant that transcribes spoken input, processes it using the GPT-4o model, and then speaks the response aloud.. It is a little project I initially created in 2022, but updated recently.
+This repository contains a Python-based speech recognition assistant that transcribes spoken input, processes it using the GPT-4o model, and then speaks the response aloud. It is a little project I initially created in 2022, but updated recently.
 
 # Features
 - Speech-to-Text: Converts spoken language into text using Google Speech Recognition.
